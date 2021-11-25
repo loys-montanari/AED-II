@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "EixPScZnz5w756mFPKo3K699TfZwQNvUrCqqutlLFNOmt5LAOFqbfL9DjpF1d4xbiZT1mlyNc9RB1LJW1SQwHA==",
+  "dgSpecHash": "kqxjhEte85wkmvoYM/fAY9XizMSJa3x9vhO9GeVq2zejou9vn0U9yMEnEK7m0iyAgYV/khilq9CuK+Q+aGEQZg==",
   "success": true,
   "projectFilePath": "C:\\Users\\lamontanari\\source\\repos\\AED-II\\src\\src.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lamontanari\\.nuget\\packages\\spectre.console\\0.42.0\\spectre.console.0.42.0.nupkg.sha512",
+    "C:\\Users\\lamontanari\\.nuget\\packages\\wcwidth\\0.2.0\\wcwidth.0.2.0.nupkg.sha512"
+  ],
   "logs": []
 }
