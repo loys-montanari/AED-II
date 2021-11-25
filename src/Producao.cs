@@ -5,12 +5,19 @@ namespace src
     public class producao
     {
         private int idatividade;
-        private int descricao;
+        private string descricao;
         private int custo;
         private int idbloco;  
-        private int maquina;           
+        private string maquina;           
 
-         
+        public producao(int id, string desc, int cst, int idbl, string maq){
+
+            idatividade = id;
+            descricao = desc;
+            custo = cst;
+            idbloco = idbl;
+            maquina = maq;
+        }
         
     }
 }
