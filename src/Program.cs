@@ -6,9 +6,13 @@ namespace Spectre.Console.Examples
     {
         public static void Main()
         {
+            int menuincial;
+
             // Render panel borders
             Header("Rocks's Storage");
             MenuInicial();
+            
+
         }
         private static void Header(string title)
         {

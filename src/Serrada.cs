@@ -1,3 +1,6 @@
+using System;
+
+
 namespace src
 {
     public class serrada
@@ -6,7 +9,7 @@ namespace src
         private int idbloco;
         private string tipo;
         private string valorm2;       
-        private string dataserrada;        
+        private DateTime? dataserrada;        
         
 
         public serrada(int ids, int idbl, string tp, string valor, DateTime data){
