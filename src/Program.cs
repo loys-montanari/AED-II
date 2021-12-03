@@ -9,19 +9,31 @@ namespace src
         public static void Main()
         {
 
-            int menuinicial = 0;
+            //int menuinicial = 0;
 
-            // Render panel borders
-            Header("Rocks's Storage");
-            MenuADM();
-            Console.WriteLine("Digite a opção desejada");
-            menuinicial = int.Parse(Console.ReadLine());
+            //cadastro de produtos
+
+            Chapa granito_itaunas = new Chapa(1, "Itaunas", 1 , 26f , 2);
+            ListaCompras lista = new ListaCompras();
+            for (int i = 1; i <= 10; i++)
+            {
+            lista.adicionar(granito_itaunas);
+            }
+            lista.printCarrinho();
 
 
 
-            // Render panel borders
-            Header("Rocks's Storage");
-            MenuInicial();
+            // // Render panel borders
+            // Header("Rocks's Storage");
+            // MenuADM();
+            // Console.WriteLine("Digite a opção desejada");
+            // menuinicial = int.Parse(Console.ReadLine());
+
+
+
+            // // Render panel borders
+            // Header("Rocks's Storage");
+            // MenuInicial();
             
 
         }
