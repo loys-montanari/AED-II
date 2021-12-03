@@ -6,7 +6,6 @@ C:\Users\lamontanari\source\repos\AED-II\src\bin\Debug\net5.0\src.dll
 C:\Users\lamontanari\source\repos\AED-II\src\bin\Debug\net5.0\ref\src.dll
 C:\Users\lamontanari\source\repos\AED-II\src\bin\Debug\net5.0\src.pdb
 C:\Users\lamontanari\source\repos\AED-II\src\bin\Debug\net5.0\Spectre.Console.dll
-C:\Users\lamontanari\source\repos\AED-II\src\bin\Debug\net5.0\Wcwidth.dll
 C:\Users\lamontanari\source\repos\AED-II\src\obj\Debug\net5.0\src.csproj.AssemblyReference.cache
 C:\Users\lamontanari\source\repos\AED-II\src\obj\Debug\net5.0\src.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\lamontanari\source\repos\AED-II\src\obj\Debug\net5.0\src.AssemblyInfoInputs.cache

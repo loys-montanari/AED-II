@@ -2,29 +2,40 @@ using System;
 
 namespace src
 {
-    public class Chapas
+    public class Chapa:Material
     {
-        private int idchapa;
-        private string chapa;
-        private int idbloco;
-        private string material;
+
+
         private float area;
         private float preco;
-        private string qualidade;
         private int espessura;
-        private DateTime? dataproducao;
+        private int quantidadechapas;
+        private int chapasquebradas;
+        private float areaquebrada;
 
-        public Chapas(int idch, string ch, int idbl, string mat, float m2, float prc, string qld, int esp, DateTime data){
-
-            idchapa = idch;
-            chapa = ch;
-            idbloco = idbl;
-            material = mat;
-            area = m2;
-            preco = prc;
-            qualidade = qld;
+        public Chapa(int id, string mat, int cla, float pr, int esp): base(id, mat, cla){
+            
+            area = 0;
+            preco = pr;
             espessura = esp;
-            dataproducao = data;
+            quantidadechapas = 0;
+            chapasquebradas = 0;
+            areaquebrada = 0;
+
+        }
+
+        public void EntradaChapas(int qtd, float ar){
+
+            quantidadechapas = quantidadechapas + qtd;
+            area = area + ar;
+        }
+
+        public void QuebraDeChapas(int qtd, float ar){
+              area = area - ar;
+              areaquebrada = areaquebrada + ar;
+              quantidadechapas = quantidadechapas - qtd;
+              chapasquebradas = chapasquebradas + qtd;
+
         }
     }
 }
