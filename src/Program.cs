@@ -8,6 +8,7 @@ namespace src
     {
         public static void Main()
         {
+
             int menuinicial = 0;
 
             // Render panel borders
@@ -17,6 +18,11 @@ namespace src
             menuinicial = int.Parse(Console.ReadLine());
 
 
+
+            // Render panel borders
+            Header("Rocks's Storage");
+            MenuInicial();
+            
 
         }
 
