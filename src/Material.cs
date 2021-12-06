@@ -1,3 +1,6 @@
+using Spectre.Console;
+using Spectre.Console.Rendering;
+
 namespace src
 {
     public class Material
@@ -26,5 +29,9 @@ namespace src
         public void setClasse(int cla){
             classe = cla;
         }
+
+
+
+
     }
 }

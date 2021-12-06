@@ -1,8 +1,12 @@
+
 using System;
+using Spectre.Console;
+using Spectre.Console.Rendering;
+using System.Threading;
 
 namespace src
 {
-    public class Bloco:Material
+    public class Bloco : Material
     {
 
         private float metroscubicos;
@@ -11,7 +15,7 @@ namespace src
 
 
 
-        public Bloco(int id, string mat, int cla): base(id, mat, cla)
+        public Bloco(int id, string mat, int cla) : base(id, mat, cla)
         {
 
 
@@ -21,17 +25,28 @@ namespace src
 
 
         }
-        public void EntradaBloco(float m3, int qtd){
+        public void EntradaBloco(float m3, int qtd)
+        {
 
-             metroscubicos = metroscubicos + m3;
-             quantidadeblocos = quantidadeblocos + qtd;
+            metroscubicos = metroscubicos + m3;
+            quantidadeblocos = quantidadeblocos + qtd;
+
+            AnsiConsole.Status()
+             .Start("Adicionando blocos ao estoque", ctx =>
+              {
+               // Simulate some work
+               
+               Thread.Sleep(2500);
+               AnsiConsole.MarkupLine($"[grey bold][yellow]{qtd}[/] bloco(s) de [yellow]{getMaterial()}[/] adicionados com sucesso![/]");
+              });
         }
-        public void serrada(int qtd){
+        public void serrada(int qtd)
+        {
 
-             blocosserrados = blocosserrados + qtd;
-             
+            blocosserrados = blocosserrados + qtd;
 
-        }      
+
+        }
 
     }
 }
