@@ -8,33 +8,29 @@ namespace src
     {
         public static void Main()
         {
-
-            //int menuinicial = 0;
-
             //cadastro de produtos
 
-            Chapa granito_itaunas = new Chapa(1, "Itaunas", 1 , 26f , 2);
+            Chapa granito_itaunas = new Chapa(1, "Itaunas", 1, 26f, 2);
             ListaCompras lista = new ListaCompras();
-            for (int i = 1; i <= 10; i++)
-            {
-            lista.adicionar(granito_itaunas);
-            }
-            lista.printCarrinho();
+
+
+            //Menu();
+            // // Render panel borders
+            Header("Rocks's Storage");
+            MenuInicio();
+
 
 
 
             // // Render panel borders
-            // Header("Rocks's Storage");
-            // MenuADM();
-            // Console.WriteLine("Digite a opção desejada");
-            // menuinicial = int.Parse(Console.ReadLine());
 
-
-
-            // // Render panel borders
-            // Header("Rocks's Storage");
             // MenuInicial();
-            
+            // for (int i = 1; i <= 10; i++)
+            // {
+            //     lista.adicionar(granito_itaunas);
+            // }
+            // lista.carrinhonovo();
+
 
         }
 
@@ -125,6 +121,46 @@ namespace src
                     new Columns(items).PadRight(2),
                     new Padding(2, 0, 0, 0)));
         }
+
+        private static void Menu()
+        {
+            var favorites = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+            .PageSize(10)
+            .Title("O que deseja fazer?")
+            .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
+            //.InstructionsText("[grey](Aperte [blue]<espaço>[/] para selecionar, [green]<enter>[/] to accept)[/]")
+            .AddChoices(new[]
+                            {
+                                  "Entrada de Blocos", "Serrada", "Quebra de Chapas", "Relatórios",
+
+                             }));
+        }
+        private static string MenuInicio()
+        {
+           
+        
+            var escolha = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+            .PageSize(10)
+            .Title("")
+            //.InstructionsText("[grey](Aperte [green]<enter>[/] para selecionar uma opção![/]")
+            .AddChoices(new[]
+                            {
+                                  "Administrador", "Cliente"
+
+                             }));
+
+             AnsiConsole.Write(
+                new Panel(
+                    new Panel($"Seja bem vindo [B][Blue]{escolha}[/][/]")
+                        .Border(BoxBorder.Ascii)));                 
+             
+             return escolha;
+
+
+        }
+
 
     }
 }
