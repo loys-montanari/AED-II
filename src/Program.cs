@@ -11,13 +11,14 @@ namespace src
             //cadastro de produtos
 
             Chapa granito_itaunas = new Chapa(1, "Itaunas", 1, 26f, 2);
+
             ListaCompras lista = new ListaCompras();
 
 
             //Menu();
             // // Render panel borders
             Header("Rocks's Storage");
-            MenuInicio();
+            granito_itaunas.serrar(300f);
 
 
 
@@ -29,7 +30,7 @@ namespace src
             // {
             //     lista.adicionar(granito_itaunas);
             // }
-            // lista.carrinhonovo();
+            //  lista.carrinhonovo();
 
 
         }

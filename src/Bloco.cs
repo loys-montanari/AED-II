@@ -27,9 +27,12 @@ namespace src
              metroscubicos = metroscubicos + m3;
              quantidadeblocos = quantidadeblocos + qtd;
         }
+
+
         public void serrada(int qtd){
 
              blocosserrados = blocosserrados + qtd;
+             
 
         }      
 

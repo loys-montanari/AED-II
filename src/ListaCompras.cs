@@ -79,8 +79,9 @@ namespace src
         }
 
 
-public void carrinhonovo(){
-                var table = new Table().Centered();
+        public void carrinhonovo()
+        {
+            var table = new Table().Centered();
 
             // Animate
             AnsiConsole.Live(table)
@@ -102,13 +103,15 @@ public void carrinhonovo(){
                     Update(230, () => table.AddColumn("Preco"));
 
                     // Rows
-                    foreach (var Chapa in lista) {
-                    Update(70, () => table.AddRow("1", $"[yellow]{Chapa.getMaterial()}[/] [grey]2cm[/] [u]IV[/]", $"R$ {Chapa.getPreco()}"));}
-                   
+                    foreach (var Chapa in lista)
+                    {
+                        Update(70, () => table.AddRow("1", $"[yellow]{Chapa.getMaterial()}[/] [grey]2cm[/] [u]IV[/]", $"R$ {Chapa.getPreco()}"));
+                    }
+
 
                     // Column footer
                     Update(230, () => table.Columns[2].Footer($"{totalizar()}"));
-                    
+
 
                     // Column alignment
                     Update(230, () => table.Columns[2].RightAligned());
@@ -135,9 +138,9 @@ public void carrinhonovo(){
                     Update(230, () => table.SimpleHeavyBorder());
 
                     // Caption
-                    Update(400, () => table.Caption("[[ [blue]FINALIZAR COMPRA?[/] ]]"));
+                    Update(400, () => table.Caption("[[ [blue]FINALIZAR COMPRA? (S/N) [/] ]]"));
                 });
-}
+        }
 
     }
 }
