@@ -10,7 +10,7 @@ namespace src
         {
             //cadastro de produtos
 
-            Chapa granito_itaunas = new Chapa(1, "Itaunas", 1, 26f, 2);
+            Chapa granito_itaunas = new Chapa(1, "Itaunas", 1, 26f);
 
             ListaCompras lista = new ListaCompras();
 
