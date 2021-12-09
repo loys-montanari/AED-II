@@ -3,6 +3,7 @@ using Spectre.Console;
 using System.Threading;
 using System.IO;
 using System.Text;
+using Spectre.Console.Rendering;
 
 namespace src
 {
@@ -30,19 +31,29 @@ namespace src
             arquivovenda = arqv;
 
         }
-        public void EntradaChapas(float ar)
+        public void setAreas()
         {
-
-            area = area + ar;
-            FileStream meuArq = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
-
-            StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
-
-            float valor = area;
-            sw.WriteLine(valor);
-            
-            sw.Close();
-            meuArq.Close();
+            //Area
+            FileStream arqprod = new FileStream(arquivoprod, FileMode.Open, FileAccess.Read);
+            StreamReader prod = new StreamReader(arqprod, Encoding.UTF8);
+            int areaprod = Convert.ToInt16(prod.ReadLine());
+            prod.Close();
+            arqprod.Close();
+            area = areaprod; 
+            //Area Quebrada
+            FileStream arqquebra = new FileStream(arquivoquebra, FileMode.Open, FileAccess.Read);
+            StreamReader quebra = new StreamReader(arqquebra, Encoding.UTF8);
+            int areaquebra = Convert.ToInt16(prod.ReadLine());
+            quebra.Close();
+            arqquebra.Close();
+            areaquebrada = areaquebra; 
+            //Area Vendida
+            FileStream arqqvenda = new FileStream(arquivovenda, FileMode.Open, FileAccess.Read);
+            StreamReader venda = new StreamReader(arqqvenda, Encoding.UTF8);
+            int areavenda = Convert.ToInt16(prod.ReadLine());
+            prod.Close();
+            arqprod.Close();
+            areavendida = areavenda;                         
             
         }
         public void QuebraDeChapas( float ar)
@@ -154,5 +165,10 @@ namespace src
             float vendido =  areavendida ;
 
         } 
+          
+        public string getArqProd(){
+
+            return arquivoprod;
+        }
     }
 }   
