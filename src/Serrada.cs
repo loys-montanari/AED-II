@@ -26,7 +26,6 @@ namespace src
 
             valorm2 = val;
         }
-
         public string getMaquinario()
         {
             return maquinario;
@@ -37,7 +36,10 @@ namespace src
 
             return valorm2;
         }
- 
+        public void serrada(float ar){
+
+            areaproduzida = areaproduzida + ar;
+        }
     }
 
 }

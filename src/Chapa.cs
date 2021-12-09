@@ -1,6 +1,8 @@
 using System;
 using Spectre.Console;
 using System.Threading;
+using System.IO;
+using System.Text;
 
 namespace src
 {
@@ -10,36 +12,68 @@ namespace src
 
         private float area;
         private float preco;
-        private int quantidadechapas;
-        private int chapasquebradas;
         private float areaquebrada;
         private float areavendida;
-        private int chapasvendidas;
+        private string arquivoprod;
+        private string arquivoquebra;
+        private string arquivovenda;
 
-        public Chapa(int id, string mat, int cla, float pr) : base(id, mat, cla)
+        public Chapa(int id, string mat, int cla, float pr, string arqp, string arqq, string arqv) : base(id, mat, cla)
         {
 
             area = 0;
             preco = pr;
-            quantidadechapas = 0;
-            chapasquebradas = 0;
             areaquebrada = 0;
             areavendida = 0;
-            chapasvendidas = 0;
+            arquivoprod = arqp;
+            arquivoquebra = arqq;
+            arquivovenda = arqv;
 
         }
-        public void EntradaChapas(int qtd, float ar)
+        public void EntradaChapas(float ar)
         {
 
-            quantidadechapas = quantidadechapas + qtd;
             area = area + ar;
+            FileStream meuArq = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
+
+            StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
+
+            float valor = area;
+            sw.WriteLine(valor);
+            
+            sw.Close();
+            meuArq.Close();
+            
         }
-        public void QuebraDeChapas(int qtd, float ar)
+        public void QuebraDeChapas( float ar)
         {
             area = area - ar;
             areaquebrada = areaquebrada + ar;
-            quantidadechapas = quantidadechapas - qtd;
-            chapasquebradas = chapasquebradas + qtd;
+
+            FileStream arqprod = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
+            StreamWriter prod = new StreamWriter(arqprod, Encoding.UTF8);
+            
+            FileStream arqquebra = new FileStream( @$"arquivos\{arquivoquebra}" , FileMode.Open, FileAccess.Write);
+            StreamWriter quebra = new StreamWriter(arqquebra, Encoding.UTF8);
+            
+            float produzido = area;
+            float quebrado =  areaquebrada ;
+            
+            prod.WriteLine(produzido);
+            prod.Close();
+            arqprod.Close();
+            quebra.WriteLine(quebrado);
+            quebra.Close();
+            arqquebra.Close();            
+            
+            AnsiConsole.Status()
+             .Start("Registrando quebra de chapas", ctx =>
+              {
+               // Simulate some work
+               
+               Thread.Sleep(2500);
+               AnsiConsole.MarkupLine($"[grey bold]Quebra de [yellow]{ar} m²[/] de chapas(s) de [yellow]{getMaterial()}[/] registrada com sucesso![/]");
+              });
 
         }
         public string chapacarrinho()
@@ -56,13 +90,24 @@ namespace src
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            String unicodeString = $"[green]Serrada concluída com sucesso! ✅[/]";
+            String unicodeString = $"[grey bold]Serrada concluída com sucesso! ✅[/]";
             return unicodeString;
         }        
-        public void serrar(float ar)
+        public void serrada(float ar)
         {
-
+            
             area = area + ar;
+            
+            FileStream meuArq = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
+
+            StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
+
+            float areaprod = area;
+            sw.WriteLine(areaprod);
+            
+            sw.Close();
+            meuArq.Close();
+
 
             AnsiConsole.MarkupLine("[grey]Aguarde enquanto processamos sua solicitação![/]");
             AnsiConsole.Progress()
@@ -79,8 +124,8 @@ namespace src
            {
                // Define tasks
                var task1 = ctx.AddTask("[green]Criando serrada[/]");
-               var task2 = ctx.AddTask("[green]Serrando seu bloco[/]");
-               var task3 = ctx.AddTask($"[green]Gerando {ar}m² de chapas[/]");
+               var task2 = ctx.AddTask("[green]Baixando blocos no estoque[/]");
+               var task3 = ctx.AddTask("[green]Incluindo chapas no estoque[/]");
 
                while (!ctx.IsFinished)
                {
@@ -94,13 +139,20 @@ namespace src
            });
             AnsiConsole.MarkupLine(iconeserrada());
         }        
-        public void saidaChapa(float ar, int qtd){
+        public void saidaChapa(float ar){
 
             area = area - ar;
             areavendida = area + ar;
-            quantidadechapas = quantidadechapas - qtd;
-            chapasvendidas = chapasvendidas + qtd;
+            
+            FileStream arqprod = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
+            StreamWriter prod = new StreamWriter(arqprod, Encoding.UTF8);
+            
+            FileStream arqqvenda = new FileStream( @$"arquivos\{arquivovenda}" , FileMode.Open, FileAccess.Write);
+            StreamWriter quebra = new StreamWriter(arqqvenda, Encoding.UTF8);
+            
+            float produzido = area;
+            float vendido =  areavendida ;
 
         } 
     }
-}
+}   

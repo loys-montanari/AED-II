@@ -3,33 +3,42 @@ using System;
 using Spectre.Console;
 using Spectre.Console.Rendering;
 using System.Threading;
+using System.IO;
+using System.Text;
 
 namespace src
 {
     public class Bloco : Material
     {
 
-        private float metroscubicos;
+        
         private int quantidadeblocos;
         private int blocosserrados;
+        private string arquivo;
 
 
-
-        public Bloco(int id, string mat, int cla) : base(id, mat, cla)
+        public Bloco(int id, string mat, int cla, string arq) : base(id, mat, cla)
         {
 
 
-            metroscubicos = 0;
             quantidadeblocos = 0;
             blocosserrados = 0;
-
+            arquivo = arq;
 
         }
-        public void EntradaBloco(float m3, int qtd)
+        public void EntradaBloco(int qtd)
         {
 
-            metroscubicos = metroscubicos + m3;
             quantidadeblocos = quantidadeblocos + qtd;
+            FileStream meuArq = new FileStream( @$"arquivos\{arquivo}" , FileMode.Open, FileAccess.Write);
+
+            StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
+
+            int valor = quantidadeblocos;
+            sw.WriteLine(valor);
+            
+            sw.Close();
+            meuArq.Close();
 
             AnsiConsole.Status()
              .Start("Adicionando blocos ao estoque", ctx =>
