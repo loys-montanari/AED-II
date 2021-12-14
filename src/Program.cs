@@ -240,12 +240,14 @@ namespace src
                     {
                         menucompra = "Continuar Comprando";
                         Console.WriteLine("Escolha o material que deseja comprar");
+                        
                         string material = EscolhaMaterial();
                         if (material == "Aurora Boreale")     //Aurora Boreale
                         {
                             Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
+                            
                             ch = int.Parse(Console.ReadLine());
-
+                            
                             if (ChapaAurora.getchapaDisp() - ch >= 0)
                             {
                                 ChapaAurora.saidaChapa(ch);
@@ -387,20 +389,6 @@ namespace src
 
                              }));
             return escolha;
-        }
-        private static void Menu()
-        {
-            var favorites = AnsiConsole.Prompt(
-            new SelectionPrompt<string>()
-            .PageSize(10)
-            .Title("O que deseja fazer?")
-            .MoreChoicesText("[grey](Move up and down to reveal more fruits)[/]")
-            //.InstructionsText("[grey](Aperte [blue]<espaço>[/] para selecionar, [green]<enter>[/] to accept)[/]")
-            .AddChoices(new[]
-                            {
-                                  "Entrada de Blocos", "Serrada", "Quebra de Chapas", "Relatórios",
-
-                             }));
         }
         private static string MenuInicio()
         {
