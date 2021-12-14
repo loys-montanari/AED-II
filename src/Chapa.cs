@@ -11,10 +11,10 @@ namespace src
     {
 
 
-        private float area;
+        private int chapa;
         private float preco;
-        private float areaquebrada;
-        private float areavendida;
+        private int chapaquebrada;
+        private int chapavendida;
         private string arquivoprod;
         private string arquivoquebra;
         private string arquivovenda;
@@ -22,44 +22,46 @@ namespace src
         public Chapa(int id, string mat, int cla, float pr, string arqp, string arqq, string arqv) : base(id, mat, cla)
         {
 
-            area = 0;
+            chapa = 0;
             preco = pr;
-            areaquebrada = 0;
-            areavendida = 0;
+            chapaquebrada = 0;
+            chapavendida = 0;
             arquivoprod = arqp;
             arquivoquebra = arqq;
             arquivovenda = arqv;
 
         }
-        public void setAreas()
+        public void setchapas()
         {
-            //Area
-            FileStream arqprod = new FileStream(arquivoprod, FileMode.Open, FileAccess.Read);
-            StreamReader prod = new StreamReader(arqprod, Encoding.UTF8);
-            int areaprod = Convert.ToInt16(prod.ReadLine());
+            //chapa
+            FileStream arqprod   = new FileStream(@$"arquivos\{arquivoprod}", FileMode.Open, FileAccess.Read);
+            FileStream arqquebra = new FileStream( @$"arquivos\{arquivoquebra}", FileMode.Open, FileAccess.Read);
+            FileStream arqvenda  = new FileStream(@$"arquivos\{arquivovenda}", FileMode.Open, FileAccess.Read);
+            StreamReader prod    = new StreamReader(arqprod, Encoding.UTF8);
+            StreamReader quebra  = new StreamReader(arqquebra, Encoding.UTF8);
+            StreamReader venda   = new StreamReader(arqvenda, Encoding.UTF8);
+            
+            
+            int chapaprod = Convert.ToInt16(prod.ReadLine());
             prod.Close();
             arqprod.Close();
-            area = areaprod; 
-            //Area Quebrada
-            FileStream arqquebra = new FileStream(arquivoquebra, FileMode.Open, FileAccess.Read);
-            StreamReader quebra = new StreamReader(arqquebra, Encoding.UTF8);
-            int areaquebra = Convert.ToInt16(prod.ReadLine());
+            chapa = chapaprod; 
+            
+            int chapaquebra = Convert.ToInt16(quebra.ReadLine());
             quebra.Close();
             arqquebra.Close();
-            areaquebrada = areaquebra; 
-            //Area Vendida
-            FileStream arqqvenda = new FileStream(arquivovenda, FileMode.Open, FileAccess.Read);
-            StreamReader venda = new StreamReader(arqqvenda, Encoding.UTF8);
-            int areavenda = Convert.ToInt16(prod.ReadLine());
-            prod.Close();
-            arqprod.Close();
-            areavendida = areavenda;                         
+            chapaquebrada = chapaquebra;             
+
+            int chapavenda = Convert.ToInt16(venda.ReadLine());
+            venda.Close();
+            arqvenda.Close();
+            chapavendida = chapavenda;                         
             
         }
-        public void QuebraDeChapas( float ar)
+        public void QuebraDeChapas( int ar)
         {
-            area = area - ar;
-            areaquebrada = areaquebrada + ar;
+            chapa = chapa - ar;
+            chapaquebrada = chapaquebrada + ar;
 
             FileStream arqprod = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
             StreamWriter prod = new StreamWriter(arqprod, Encoding.UTF8);
@@ -67,8 +69,8 @@ namespace src
             FileStream arqquebra = new FileStream( @$"arquivos\{arquivoquebra}" , FileMode.Open, FileAccess.Write);
             StreamWriter quebra = new StreamWriter(arqquebra, Encoding.UTF8);
             
-            float produzido = area;
-            float quebrado =  areaquebrada ;
+            float produzido = chapa;
+            float quebrado =  chapaquebrada ;
             
             prod.WriteLine(produzido);
             prod.Close();
@@ -104,17 +106,17 @@ namespace src
             String unicodeString = $"[grey bold]Serrada concluída com sucesso! ✅[/]";
             return unicodeString;
         }        
-        public void serrada(float ar)
+        public void serrada(int ar)
         {
             
-            area = area + ar;
+            chapa = chapa + ar;
             
             FileStream meuArq = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
 
             StreamWriter sw = new StreamWriter(meuArq, Encoding.UTF8);
 
-            float areaprod = area;
-            sw.WriteLine(areaprod);
+            float chapaprod = chapa;
+            sw.WriteLine(chapaprod);
             
             sw.Close();
             meuArq.Close();
@@ -150,10 +152,10 @@ namespace src
            });
             AnsiConsole.MarkupLine(iconeserrada());
         }        
-        public void saidaChapa(float ar){
+        public void saidaChapa(int ar){
 
-            area = area - ar;
-            areavendida = area + ar;
+            chapa = chapa - ar;
+            chapavendida = chapa + ar;
             
             FileStream arqprod = new FileStream( @$"arquivos\{arquivoprod}" , FileMode.Open, FileAccess.Write);
             StreamWriter prod = new StreamWriter(arqprod, Encoding.UTF8);
@@ -161,14 +163,17 @@ namespace src
             FileStream arqqvenda = new FileStream( @$"arquivos\{arquivovenda}" , FileMode.Open, FileAccess.Write);
             StreamWriter quebra = new StreamWriter(arqqvenda, Encoding.UTF8);
             
-            float produzido = area;
-            float vendido =  areavendida ;
+            float produzido = chapa;
+            float vendido =  chapavendida ;
 
-        } 
-          
+        }       
         public string getArqProd(){
 
             return arquivoprod;
+        }          
+        public int getchapaDisp(){
+
+            return chapa;
         }
     }
 }   
