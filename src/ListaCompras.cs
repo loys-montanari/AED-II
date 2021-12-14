@@ -138,7 +138,8 @@ namespace src
                     Update(230, () => table.SimpleHeavyBorder());
 
                     // Caption
-                    Update(400, () => table.Caption("[[ [blue]FINALIZAR COMPRA? (S/N) [/] ]]"));
+                    Update(400, () => table.Caption("[[ [blue]Sua compra foi finalizada! Obrigada! [/] ]]"));
+                    
                 });
         }
 

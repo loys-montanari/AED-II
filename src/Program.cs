@@ -62,292 +62,306 @@ namespace src
             menuinicio = MenuInicio();
             while (menuinicio != "Encerrar")
             {
-            if (menuinicio == "Administrador")
-            {
-
-                menuadm = MenuAdministrador();
-                if (menuadm == "Entrada de Blocos")    //entrada bloco
+                if (menuinicio == "Administrador")
                 {
-                    string escolhamaterial;
-                    int qtd;
-                    AnsiConsole.MarkupLine("\n[grey bold]ENTRADA DE BLOCOS[/]\n");
-                    Console.WriteLine("Escolha o material do bloco.");
-                    escolhamaterial = EscolhaMaterial();
-                    Console.WriteLine($"\nQuantos blocos de {escolhamaterial} deseja adicionar?");
-                    qtd = int.Parse(Console.ReadLine());
+
+                    menuadm = MenuAdministrador();
+
+                         if (menuadm == "Entrada de Blocos")    //entrada bloco
+                    {
+                        string escolhamaterial;
+                        int qtd;
+                        AnsiConsole.MarkupLine("\n[grey bold]ENTRADA DE BLOCOS[/]\n");
+                        Console.WriteLine("Escolha o material do bloco.");
+                        escolhamaterial = EscolhaMaterial();
+                        Console.WriteLine($"\nQuantos blocos de {escolhamaterial} deseja adicionar?");
+                        qtd = int.Parse(Console.ReadLine());
 
 
-                    if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
-                    {
-                        BlocoAurora.EntradaBloco(qtd);
+                        if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
+                        {
+                            BlocoAurora.EntradaBloco(qtd);
+                        }
+                        else if (escolhamaterial == "Black Brasil") //Black Brasil
+                        {
+                            BlocoBlack.EntradaBloco(qtd);
+                        }
+                        else if (escolhamaterial == "Green Ubatuba") //Green Ubatuba
+                        {
+                            BlocoGreen.EntradaBloco(qtd);
+                        }
+                        else if (escolhamaterial == "Grey Goose") //Grey Goose
+                        {
+                            BlocoGrey.EntradaBloco(qtd);
+                        }
+                        else if (escolhamaterial == "Itaúnas") //Itaunas
+                        {
+                            BlocoItaunas.EntradaBloco(qtd);
+                        }
+                        else if (escolhamaterial == "Perla Venata") //Perla Venata
+                        {
+                            BlocoPerla.EntradaBloco(qtd);
+                        }
+                        
+
                     }
-                    else if (escolhamaterial == "Black Brasil") //Black Brasil
+                    else if (menuadm == "Serrada")
                     {
-                        BlocoBlack.EntradaBloco(qtd);
+                        string escolhamaterial;
+                        int qtd;
+                        int ar;
+                        AnsiConsole.MarkupLine("\n[grey bold]SERRADA DE BLOCOS[/]\n");
+                        Console.WriteLine("Escolha o material do bloco que deseja serrar.");
+                        escolhamaterial = EscolhaMaterial();
+                        Console.WriteLine($"\nQuantos blocos de {escolhamaterial} serão serrados?");
+                        qtd = int.Parse(Console.ReadLine());
+                        Console.WriteLine("\nQuantas chapas serão geradas?");
+                        ar = int.Parse(Console.ReadLine());
+
+                        if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
+                        {
+                            BlocoAurora.serrada(qtd);
+                            ChapaAurora.serrada(ar);
+                            SerradaAurora.serrada(ar);
+                        }
+                        else if (escolhamaterial == "Black Brasil") //Black Brasil
+                        {
+                            BlocoBlack.serrada(qtd);
+                            ChapaBlack.serrada(ar);
+                            SerradaBlack.serrada(ar);
+                        }
+                        else if (escolhamaterial == "Green Ubatuba") //Green Ubatuba
+                        {
+                            BlocoGreen.serrada(qtd);
+                            ChapaGreen.serrada(ar);
+                            SerradaGreen.serrada(ar);
+                        }
+                        else if (escolhamaterial == "Grey Goose") //Grey Goose
+                        {
+                            BlocoGrey.serrada(qtd);
+                            ChapaGrey.serrada(ar);
+                            SerradaGrey.serrada(ar);
+                        }
+                        else if (escolhamaterial == "Itaúnas") //Itaunas
+                        {
+                            BlocoItaunas.serrada(qtd);
+                            ChapaItaunas.serrada(ar);
+                            SerradaItaunas.serrada(ar);
+                        }
+                        else if (escolhamaterial == "Perla Venata") //Perla Venata
+                        {
+                            BlocoPerla.serrada(qtd);
+                            ChapaPerla.serrada(ar);
+                            SerradaPerla.serrada(ar);
+                        }
+                        
                     }
-                    else if (escolhamaterial == "Green Ubatuba") //Green Ubatuba
+                    else if (menuadm == "Quebra de Chapas")
                     {
-                        BlocoGreen.EntradaBloco(qtd);
+                        string escolhamaterial;
+                        int ar;
+                        AnsiConsole.MarkupLine("\n[grey bold]REGISTRO DE QUEBRA DE CHAPAS[/]\n");
+                        Console.WriteLine("Escolha o material das chapas quebradas.");
+                        escolhamaterial = EscolhaMaterial();
+                        Console.WriteLine("\nQuantas chapas foram quebradas?");
+                        ar = int.Parse(Console.ReadLine());
+
+                        if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
+                        {
+
+                            ChapaAurora.QuebraDeChapas(ar);
+
+                        }
+                        else if (escolhamaterial == "Black Brasil") //Black Brasil
+                        {
+
+                            ChapaBlack.QuebraDeChapas(ar);
+
+                        }
+                        else if (escolhamaterial == "Green Ubatuba") //Green Ubatuba
+                        {
+
+                            ChapaGreen.QuebraDeChapas(ar);
+
+                        }
+                        else if (escolhamaterial == "Grey Goose") //Grey Goose
+                        {
+
+                            ChapaGrey.QuebraDeChapas(ar);
+
+                        }
+                        else if (escolhamaterial == "Itaúnas") //Itaunas
+                        {
+
+                            ChapaItaunas.QuebraDeChapas(ar);
+
+                        }
+                        else if (escolhamaterial == "Perla Venata") //Perla Venata
+                        {
+
+                            ChapaPerla.QuebraDeChapas(ar);
+
+                        }
+                        
                     }
-                    else if (escolhamaterial == "Grey Goose") //Grey Goose
+                    else if (menuadm == "Sair")
                     {
-                        BlocoGrey.EntradaBloco(qtd);
-                    }
-                    else if (escolhamaterial == "Itaúnas") //Itaunas
-                    {
-                        BlocoItaunas.EntradaBloco(qtd);
-                    }
-                    else if (escolhamaterial == "Perla Venata") //Perla Venata
-                    {
-                        BlocoPerla.EntradaBloco(qtd);
+                        Console.WriteLine("Seu atendimento foi encerrado!");
+                        break;
+
+
+
                     }
                 }
-                else if (menuadm == "Serrada")
+                if (menuinicio == "Cliente")
                 {
-                    string escolhamaterial;
-                    int qtd;
-                    int ar;
-                    AnsiConsole.MarkupLine("\n[grey bold]SERRADA DE BLOCOS[/]\n");
-                    Console.WriteLine("Escolha o material do bloco que deseja serrar.");
-                    escolhamaterial = EscolhaMaterial();
-                    Console.WriteLine($"\nQuantos blocos de {escolhamaterial} serão serrados?");
-                    qtd = int.Parse(Console.ReadLine());
-                    Console.WriteLine("\nQuantos M² de chapas serão gerados?");
-                    ar = int.Parse(Console.ReadLine());
 
-                    if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
+                    var table = new Table();
+
+                    table.AddColumn("[yellow]Material[/]");
+                    table.AddColumn("[yellow]M² Disponível[/]");
+                    table.AddColumn("[yellow]Preço[/]");
+                    foreach (var Chapa in Estoque)
                     {
-                        BlocoAurora.serrada(qtd);
-                        ChapaAurora.serrada(ar);
-                        SerradaAurora.serrada(ar);
-                    }
-                    else if (escolhamaterial == "Black Brasil") //Black Brasil
-                    {
-                        BlocoBlack.serrada(qtd);
-                        ChapaBlack.serrada(ar);
-                        SerradaBlack.serrada(ar);
-                    }
-                    else if (escolhamaterial == "Green Ubatuba") //Green Ubatuba
-                    {
-                        BlocoGreen.serrada(qtd);
-                        ChapaGreen.serrada(ar);
-                        SerradaGreen.serrada(ar);
-                    }
-                    else if (escolhamaterial == "Grey Goose") //Grey Goose
-                    {
-                        BlocoGrey.serrada(qtd);
-                        ChapaGrey.serrada(ar);
-                        SerradaGrey.serrada(ar);
-                    }
-                    else if (escolhamaterial == "Itaúnas") //Itaunas
-                    {
-                        BlocoItaunas.serrada(qtd);
-                        ChapaItaunas.serrada(ar);
-                        SerradaItaunas.serrada(ar);
-                    }
-                    else if (escolhamaterial == "Perla Venata") //Perla Venata
-                    {
-                        BlocoPerla.serrada(qtd);
-                        ChapaPerla.serrada(ar);
-                        SerradaPerla.serrada(ar);
+                        table.AddRow(Chapa.getMaterial(), $"[yellow]{Chapa.getchapaDisp()}[/]", $"R$ {Chapa.getPreco()}");
                     }
 
-                }
-                else if (menuadm == "Quebra de Chapas")
-                {
-                    string escolhamaterial;
-                    int ar;
-                    AnsiConsole.MarkupLine("\n[grey bold]REGISTRO DE QUEBRA DE CHAPAS[/]\n");
-                    Console.WriteLine("Escolha o material das chapas quebradas.");
-                    escolhamaterial = EscolhaMaterial();
-                    Console.WriteLine("\nQuantos M² de chapas foram quebrados?");
-                    ar = int.Parse(Console.ReadLine());
 
-                    if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
+                    AnsiConsole.Write(
+
+                        new Panel(table)
+
+                            .Header("Chapas em Estoque"));
+                    int i, ch;
+                    string menucompra;
+
+                    ListaCompras lista = new ListaCompras();
+                    do
                     {
+                        menucompra = "Continuar Comprando";
+                        Console.WriteLine("Escolha o material que deseja comprar");
+                        string material = EscolhaMaterial();
+                        if (material == "Aurora Boreale")     //Aurora Boreale
+                        {
+                            Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
+                            ch = int.Parse(Console.ReadLine());
 
-                        ChapaAurora.QuebraDeChapas(ar);
+                            if (ChapaAurora.getchapaDisp() - ch >= 0)
+                            {
+                                ChapaAurora.saidaChapa(ch);
 
-                    }
-                    else if (escolhamaterial == "Black Brasil") //Black Brasil
-                    {
+                                for (i = 1; i <= ch; i++)
+                                {
+                                    lista.adicionar(ChapaAurora);
+                                }
+                                lista.imprimelista();
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                menucompra = MenuCompra();
 
-                        ChapaBlack.QuebraDeChapas(ar);
+                            }
+                        }
+                        else if (material == "Black Brasil")       //Black Brasil
+                        {
+                            Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
+                            ch = int.Parse(Console.ReadLine());
 
-                    }
-                    else if (escolhamaterial == "Green Ubatuba") //Green Ubatuba
-                    {
+                            if (ChapaBlack.getchapaDisp() - ch >= 0)
+                            {
+                                ChapaBlack.saidaChapa(ch);
 
-                        ChapaGreen.QuebraDeChapas(ar);
+                                for (i = 1; i <= ch; i++)
+                                {
+                                    lista.adicionar(ChapaBlack);
+                                }
+                                lista.imprimelista();
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                menucompra = MenuCompra();
 
-                    }
-                    else if (escolhamaterial == "Grey Goose") //Grey Goose
-                    {
+                            }
+                        }
+                        else if (material == "Green Ubatuba")     //Green Ubatuba
+                        {
+                            Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
+                            ch = int.Parse(Console.ReadLine());
 
-                        ChapaGrey.QuebraDeChapas(ar);
+                            if (ChapaGreen.getchapaDisp() - ch >= 0)
+                            {
+                                ChapaGreen.saidaChapa(ch);
 
-                    }
-                    else if (escolhamaterial == "Itaúnas") //Itaunas
-                    {
+                                for (i = 1; i <= ch; i++)
+                                {
+                                    lista.adicionar(ChapaGreen);
+                                }
+                                lista.imprimelista();
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                menucompra = MenuCompra();
 
-                        ChapaItaunas.QuebraDeChapas(ar);
+                            }
+                        }
+                        else if (material == "Grey Goose")        //Grey Goose
+                        {
+                            Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
+                            ch = int.Parse(Console.ReadLine());
 
-                    }
-                    else if (escolhamaterial == "Perla Venata") //Perla Venata
-                    {
+                            if (ChapaGrey.getchapaDisp() - ch >= 0)
+                            {
+                                ChapaGrey.saidaChapa(ch);
 
-                        ChapaPerla.QuebraDeChapas(ar);
+                                for (i = 1; i <= ch; i++)
+                                {
+                                    lista.adicionar(ChapaGrey);
+                                }
+                                lista.imprimelista();
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                menucompra = MenuCompra();
 
-                    }
+                            }
+                        }
+                        else if (material == "Itaunas")           //Itaunas
+                        {
+                            Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
+                            ch = int.Parse(Console.ReadLine());
 
+                            if (ChapaItaunas.getchapaDisp() - ch >= 0)
+                            {
+                                ChapaItaunas.saidaChapa(ch);
+
+                                for (i = 1; i <= ch; i++)
+                                {
+                                    lista.adicionar(ChapaItaunas);
+                                }
+                                lista.imprimelista();
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                menucompra = MenuCompra();
+
+                            }
+                        }
+                        else if (material == "Perla Venata")      //Perla Venata
+                        {
+                            Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
+                            ch = int.Parse(Console.ReadLine());
+
+                            if (ChapaPerla.getchapaDisp() - ch >= 0)
+                            {
+                                ChapaPerla.saidaChapa(ch);
+
+                                for (i = 1; i <= ch; i++)
+                                {
+                                    lista.adicionar(ChapaPerla);
+                                }
+                                lista.imprimelista();
+                                Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
+                                menucompra = MenuCompra();
+
+                            }
+                        }
+                    } while (menucompra == "Continuar Comprando");
+                    lista.carrinhonovo();
+
+                    break;
                 }
             }
-            if (menuinicio == "Cliente")
-            {
 
-                var table = new Table();
-
-                table.AddColumn("[yellow]Material[/]");
-                table.AddColumn("[yellow]M² Disponível[/]");
-                table.AddColumn("[yellow]Preço[/]");
-                foreach (var Chapa in Estoque)
-                {
-                    table.AddRow(Chapa.getMaterial(), $"[yellow]{Chapa.getchapaDisp()}[/]", $"R$ {Chapa.getPreco()}");
-                }
-
-
-                AnsiConsole.Write(
-
-                    new Panel(table)
-
-                        .Header("Chapas em Estoque"));
-                int i, ch;
-                string menucompra;
-  
-                ListaCompras lista = new ListaCompras();
-                do {
-                menucompra = "Continuar Comprando";
-                Console.WriteLine("Escolha o material que deseja comprar");
-                string material = EscolhaMaterial();
-                  if (material == "Aurora Boreale")     //Aurora Boreale
-                {
-                    Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
-                    ch = int.Parse(Console.ReadLine());
-
-                    if (ChapaAurora.getchapaDisp() - ch >= 0)
-                    {
-                        ChapaAurora.saidaChapa(ch);
-
-                        for (i = 1; i <= ch; i++)
-                        {
-                            lista.adicionar(ChapaAurora);
-                        }
-                        lista.imprimelista();
-                        Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
-                        menucompra = MenuCompra();
-
-                    }
-                    }
-             else if (material == "Black Brasil")       //Black Brasil
-                {
-                    Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
-                    ch = int.Parse(Console.ReadLine());
-
-                    if (ChapaBlack.getchapaDisp() - ch >= 0)
-                    {
-                        ChapaBlack.saidaChapa(ch);
-
-                        for (i = 1; i <= ch; i++)
-                        {
-                            lista.adicionar(ChapaBlack);
-                        }
-                        lista.imprimelista();
-                        Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
-                        menucompra = MenuCompra();
-
-                    }                    
-                }
-             else if (material == "Green Ubatuba" )     //Green Ubatuba
-                {
-                    Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
-                    ch = int.Parse(Console.ReadLine());
-
-                    if (ChapaGreen.getchapaDisp() - ch >= 0)
-                    {
-                        ChapaGreen.saidaChapa(ch);
-
-                        for (i = 1; i <= ch; i++)
-                        {
-                            lista.adicionar(ChapaGreen);
-                        }
-                        lista.imprimelista();
-                        Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
-                        menucompra = MenuCompra();
-
-                    }                    
-                }  
-             else if (material == "Grey Goose" )        //Grey Goose
-                {
-                    Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
-                    ch = int.Parse(Console.ReadLine());
-
-                    if (ChapaGrey.getchapaDisp() - ch >= 0)
-                    {
-                        ChapaGrey.saidaChapa(ch);
-
-                        for (i = 1; i <= ch; i++)
-                        {
-                            lista.adicionar(ChapaGrey);
-                        }
-                        lista.imprimelista();
-                        Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
-                        menucompra = MenuCompra();
-
-                    }                    
-                }     
-             else if (material == "Itaunas" )           //Itaunas
-                {
-                    Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
-                    ch = int.Parse(Console.ReadLine());
-
-                    if (ChapaItaunas.getchapaDisp() - ch >= 0)
-                    {
-                        ChapaItaunas.saidaChapa(ch);
-
-                        for (i = 1; i <= ch; i++)
-                        {
-                            lista.adicionar(ChapaItaunas);
-                        }
-                        lista.imprimelista();
-                        Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
-                        menucompra = MenuCompra();
-
-                    }                    
-                }                                                
-             else if (material == "Perla Venata" )      //Perla Venata
-                {
-                    Console.WriteLine($"Quantas Chapas de {material} deseja comprar?");
-                    ch = int.Parse(Console.ReadLine());
-
-                    if (ChapaPerla.getchapaDisp() - ch >= 0)
-                    {
-                        ChapaPerla.saidaChapa(ch);
-
-                        for (i = 1; i <= ch; i++)
-                        {
-                            lista.adicionar(ChapaPerla);
-                        }
-                        lista.imprimelista();
-                        Console.WriteLine("Total: R${0:0.00}", lista.totalizar());
-                        menucompra = MenuCompra();
-
-                    }                    
-                }              
-                   } while (menucompra == "Continuar Comprando");
-                lista.carrinhonovo();
-            }
-            }
-        
         }
 
 
@@ -369,7 +383,7 @@ namespace src
             .Title("")
             .AddChoices(new[]
                             {
-                                  "Entrada de Blocos", "Serrada", "Quebra de Chapas"
+                                  "Entrada de Blocos", "Serrada", "Quebra de Chapas", "Sair"
 
                              }));
             return escolha;
@@ -431,7 +445,6 @@ namespace src
 
 
         }
-
         private static string MenuCompra()
         {
 
@@ -449,4 +462,3 @@ namespace src
 
     }
 }
-    
