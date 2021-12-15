@@ -74,10 +74,23 @@ namespace src
                         AnsiConsole.MarkupLine("\n[grey bold]ENTRADA DE BLOCOS[/]\n");
                         Console.WriteLine("Escolha o material do bloco.");
                         escolhamaterial = EscolhaMaterial();
-                        Console.WriteLine($"\nQuantos blocos de {escolhamaterial} deseja adicionar?");
-                        qtd = int.Parse(Console.ReadLine());
+                        qtd = 0;
 
-
+                        while (qtd == 0)
+                        {
+                            Console.WriteLine($"\nQuantos blocos de {escolhamaterial} deseja adicionar?");
+                            try
+                            {
+                                var dado = Console.ReadLine();
+                                qtd = int.Parse(dado);
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("Digite um valor válido!");
+                            }
+                        }                  
+                       
+                                                 
                         if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
                         {
                             BlocoAurora.EntradaBloco(qtd);
@@ -115,8 +128,22 @@ namespace src
                         escolhamaterial = EscolhaMaterial();
                         Console.WriteLine($"\nQuantos blocos de {escolhamaterial} serão serrados?");
                         qtd = int.Parse(Console.ReadLine());
-                        Console.WriteLine("\nQuantas chapas serão geradas?");
-                        ar = int.Parse(Console.ReadLine());
+                        
+                        
+                        ar = 0;
+                        while (ar == 0)
+                        {
+                            Console.WriteLine("\nQuantas chapas serão geradas?");
+                            try
+                            {
+                                var dado = Console.ReadLine();
+                                ar = int.Parse(dado);
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("Digite um valor válido!");
+                            }
+                        }  
 
                         if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
                         {
@@ -163,8 +190,23 @@ namespace src
                         AnsiConsole.MarkupLine("\n[grey bold]REGISTRO DE QUEBRA DE CHAPAS[/]\n");
                         Console.WriteLine("Escolha o material das chapas quebradas.");
                         escolhamaterial = EscolhaMaterial();
-                        Console.WriteLine("\nQuantas chapas foram quebradas?");
-                        ar = int.Parse(Console.ReadLine());
+                        
+                        
+                        ar = 0;
+                        while (ar == 0)
+                        {
+                            Console.WriteLine("\nQuantas chapas foram quebradas?");
+                            try
+                            {
+                                var dado = Console.ReadLine();
+                                ar = int.Parse(dado);
+                            }
+                            catch (System.Exception)
+                            {
+                                Console.WriteLine("Digite um valor válido!");
+                            }
+                        }  
+
 
                         if (escolhamaterial == "Aurora Boreale") //Aurora Boreal
                         {
