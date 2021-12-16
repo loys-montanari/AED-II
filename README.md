@@ -93,7 +93,7 @@ $ dotnet run
 ---
 
 
-## Authors
+## Autores
 
   <br>
 
