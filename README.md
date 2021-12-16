@@ -90,12 +90,11 @@ $ dotnet run
     - Criação dos métodos complementares
     - Criação das funções melhorando as aparências do console
 
-- [ ] Aula 16/12/2021
+- [ ] Entrega 16/12/2021
     - Finalização do README
     - Atualização do Repositório
     - Publicação do video
-    - Entrega do Projeto
-
+  
 
 ---
 
