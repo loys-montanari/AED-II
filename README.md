@@ -4,7 +4,7 @@
 
 Este projeto consiste em registrar entrada e saída de produtos relacionados à rochas ornamentais. Ele terá o estoque de blocos e chapas, a transformação do bloco em chapas e o processo produtivo dando entrada das chapas no estoque.
 
-## Aula 02/11/2021
+## Aula 02/12/2021
 
 - Finalização das classes
 - Criação dos principais métodos
@@ -12,6 +12,18 @@ Este projeto consiste em registrar entrada e saída de produtos relacionados à 
 - Desenho final do fluxo
 - Inicialização do main
 - Definição do layout e framework
+
+
+##09/12/2021
+
+- Criação das listas
+- Criação dos arquivos
+- Criação dos métodos complementares
+- Criação das funções melhorando as aparências do console
+
+##Link Youtube
+https://youtu.be/y940npSpaGI
+
 
 ## Authors
 
