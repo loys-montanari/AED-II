@@ -60,13 +60,12 @@ $ dotnet run
 ---
 
 
-## Ferramentas utilizadas
+## ⚙️ Ferramentas utilizadas
 
 **C#**
 
--   **[.NET](https://github.com/dotnet)**
 -   **[Spectre.Console](https://github.com/spectreconsole/spectre.console)**
--   Editor:  **[Visual Studio Code](https://code.visualstudio.com/)**
+
 
 ---
 
