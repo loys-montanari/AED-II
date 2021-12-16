@@ -261,7 +261,7 @@ namespace src
                     var table = new Table();
 
                     table.AddColumn("[yellow]Material[/]");
-                    table.AddColumn("[yellow]M² Disponível[/]");
+                    table.AddColumn("[yellow]Chapas Disponíveis[/]");
                     table.AddColumn("[yellow]Preço[/]");
                     foreach (var Chapa in Estoque)
                     {

@@ -85,7 +85,7 @@ namespace src
                // Simulate some work
                
                Thread.Sleep(2500);
-               AnsiConsole.MarkupLine($"[grey bold]Quebra de [yellow]{ar} m²[/] de chapas(s) de [yellow]{getMaterial()}[/] registrada com sucesso![/]");
+               AnsiConsole.MarkupLine($"[grey bold]Quebra de [yellow]{ar}[/] chapas(s) de [yellow]{getMaterial()}[/] registrada com sucesso![/]");
               });
 
         }

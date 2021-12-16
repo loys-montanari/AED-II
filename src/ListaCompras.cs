@@ -105,7 +105,7 @@ namespace src
                     // Rows
                     foreach (var Chapa in lista)
                     {
-                        Update(70, () => table.AddRow("1", $"[yellow]{Chapa.getMaterial()}[/] [grey]2cm[/] [u]IV[/]", $"R$ {Chapa.getPreco()}"));
+                        Update(70, () => table.AddRow("1", $"[yellow]{Chapa.getMaterial()}[/] [grey]2cm[/]", $"R$ {Chapa.getPreco()}"));
                     }
 
 
