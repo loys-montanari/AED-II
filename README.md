@@ -14,14 +14,14 @@ Este projeto consiste em registrar entrada e saída de produtos relacionados à 
 - Definição do layout e framework
 
 
-##09/12/2021
+## 09/12/2021
 
 - Criação das listas
 - Criação dos arquivos
 - Criação dos métodos complementares
 - Criação das funções melhorando as aparências do console
 
-##Link Youtube
+## Link Youtube
 https://youtu.be/y940npSpaGI
 
 
